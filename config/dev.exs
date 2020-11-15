@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :elixirgroup, Elixirgroup.Repo,
-  username: "postgres",
+  username: "elixir_dev",
   password: "123",
   database: "elixirgroup_dev",
   hostname: "localhost",
