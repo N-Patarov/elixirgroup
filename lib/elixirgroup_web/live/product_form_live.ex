@@ -1,5 +1,5 @@
-alias ElixirgroupWeb.Products
-alias ElixirgroupWeb.Products.Product
+alias Elixirgroup.Products
+alias Elixirgroup.Products.Product
 
 def mount(%{a"action" => action, "csrf_token" => csrf_token}, socket) do
   assigns = [
