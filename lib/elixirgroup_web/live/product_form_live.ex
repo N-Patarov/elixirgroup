@@ -2,7 +2,7 @@ alias Elixirgroup.Products
 alias Elixirgroup.Products.Product
 
 defmodule Fix do
-  def mount(%{a"action" => action, "csrf_token" => csrf_token}, socket) do
+  def mount(%{"action" => action, "csrf_token" => csrf_token}, socket) do
   assigns = [
     conn: socket,
     action: action,
