@@ -1,5 +1,5 @@
-alias Videos.Products
-alias Videos.Products.Product
+alias ElixirgroupWeb.Products
+alias ElixirgroupWeb.Products.Product
 
 def mount(%{a"action" => action, "csrf_token" => csrf_token}, socket) do
   assigns = [
@@ -23,7 +23,7 @@ end
 
 
 
-defmodule elixirgroup.ProductFormLive do
+defmodule Elixirgroup.ProductFormLive do
   use Phoenix.LiveView
 
   def mount(%{"action" => action, "csrf_token" => csrf_token}, socket) do
@@ -37,6 +37,6 @@ defmodule elixirgroup.ProductFormLive do
   end
 
   def render(assigns) do
-    elixirgroup.ProductView.render("form.html", assigns)
+    Elixirgroup.ProductView.render("form.html", assigns)
   end
 end
