@@ -1,7 +1,10 @@
-alias Elixirgroup.Products
-alias Elixirgroup.Products.Product
+defmodule ElixirgroupWeb.ProductFormLive do
+  use Phoenix.LiveView
 
-defmodule Fix do
+  alias Elixirgroup.Products
+  alias Elixirgroup.Products.Product
+
+
   def mount(%{"action" => action, "csrf_token" => csrf_token}, socket) do
   assigns = [
     conn: socket,
@@ -13,31 +16,19 @@ defmodule Fix do
   {:ok, assign(socket, assigns)}
   end
 
+  def render(assigns) do
+    ElixirgroupWeb.ProductView.render("form.html", assigns)
+  end
+
   def handle_event("validate", %{"product" => product_params}, socket) do
     changeset =
-      %Product{}
+      socket.assing.product
       |> Product.changeset(product_params)
       |> Map.put(:action, :insert)
 
     {:noreply, assign(socket, changeset: changeset)}
   end
-end
+  def get_product(%{"id" => id} = _product_params), do: Products.get_product!(id)
+  def get_product(_product_params), do: %Product{}
 
-
-defmodule Elixirgroup.ProductFormLive do
-  use Phoenix.LiveView
-
-  def mount(%{"action" => action, "csrf_token" => csrf_token}, socket) do
-    assigns = [
-      conn: socket,
-      action: action,
-      csrf_token: csrf_token
-    ]
-
-    {:ok, assign(socket, assigns)}
-  end
-
-  def render(assigns) do
-    Elixirgroup.ProductView.render("form.html", assigns)
-  end
 end
