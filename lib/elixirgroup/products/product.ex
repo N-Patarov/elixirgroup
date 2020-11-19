@@ -2,7 +2,7 @@ defmodule Elixirgroup.Products.Product do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "first_product" do
+  schema "products" do
     field :description, :string
     field :price, :float
 
