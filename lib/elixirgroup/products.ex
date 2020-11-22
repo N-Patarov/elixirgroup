@@ -17,7 +17,7 @@ defmodule Elixirgroup.Products do
       [%Product{}, ...]
 
   """
-  def list_first_product do
+  def list_products do
     Repo.all(Product)
   end
 

@@ -5,8 +5,8 @@ defmodule ElixirgroupWeb.ProductController do
   alias Elixirgroup.Products.Product
 
   def index(conn, _params) do
-    first_product = Products.list_first_product()
-    render(conn, "index.html", first_product: first_product)
+    products = Products.list_products()
+    render(conn, "index.html", products: products)
   end
 
   def new(conn, _params) do

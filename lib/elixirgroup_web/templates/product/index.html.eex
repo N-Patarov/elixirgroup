@@ -1,4 +1,4 @@
-<h1>Listing First product</h1>
+<h1>Listing product</h1>
 
 <table>
   <thead>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-<%= for product <- @first_product do %>
+<%= for product <- @product do %>
     <tr>
       <td><%= product.description %></td>
       <td><%= product.price %></td>
